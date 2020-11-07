@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {
-  Container,
+  Container
 } from './style';
 
 interface Props {

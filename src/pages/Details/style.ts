@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { motion } from 'framer-motion';
 
@@ -13,21 +13,19 @@ export const Container = styled.div`
   justify-content:center;
   align-items:center;
   overflow-y: auto;
-  padding: 20px 0;
+  padding: 30px 0 0;
 `;
 
 export const Content = styled(motion.div)`
-  margin-top: 20px;
-  width: 600px;
-  min-height: 100vh;
+  width: 850px;
+  height: 100%;
   background: #1f1f1f;
   border-radius: 10px;
-  scale: .5;
 `;
 
 export const VideoContainer = styled.div`
   width: 100%;
-  height: 400px;
+  height: 500px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   position: relative;
@@ -57,6 +55,7 @@ export const VideoComponent = styled.video`
   position: absolute;
   object-fit: cover;
   z-index: 2;
+  transition: 3s;
 `;
 
 export const VideoInformation = styled<any>('div')`
@@ -64,5 +63,87 @@ export const VideoInformation = styled<any>('div')`
   height: 100%;
   position: relative;
   z-index: 4;
-  background: linear-gradient(to bottom, transparent,transparent,transparent, rgba(31, 31, 31,.4), rgba(31, 31, 31,.2),rgb(31, 31, 31));
+`;
+
+export const TitleImage = styled.img`
+  width: 300px;
+  height: 100px;
+  position:absolute;
+  bottom: 100px;
+`;
+
+export const OptionOnMovie = styled.div`
+  display:flex;
+  align-items:center;
+  position: absolute;
+  bottom: 0;
+  padding: 0 25px;
+  width: 100%;
+  height: 120px;
+  align-items:center;
+  background: linear-gradient(to bottom, transparent,transparent, rgba(31, 31, 31,.2), rgba(31, 31, 31,.4),rgb(31, 31, 31));
+  button {
+    margin-top: 20px;
+    margin-right: 10px;
+    background: #fff;
+    width: 130px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 3px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    span {
+      font-weight: 700;
+      font-size: 16px;
+      margin-left: 5px;
+    }
+    svg {
+      font-size: 22px;
+    }
+  }
+`;
+
+export const OptionCircle = styled<any>('div')`
+  background: rgba(46,46,46,.6);
+  margin-right: 10px;
+  margin-top: 20px;
+  border: 2px solid #ccc;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  ${props => props.vol && css`
+    opacity: .5;
+    transition: .4s;
+    :hover {
+      opacity: 1;
+      transition: .4s;
+    }
+  `}
+  :hover {
+    border: 2px solid #fff;
+    opacity: 1;
+  }
+`;
+
+export const DetailsMovie = styled.div`
+  width: 100%;
+  height: 100%;
+  background: #1f1f1f;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin-bottom: 30px;
+  padding: 10px;
+`;
+
+export const MovieEspc = styled.div`
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 `;

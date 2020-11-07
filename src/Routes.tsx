@@ -1,23 +1,33 @@
+import React, { useLayoutEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import React from 'react';
 
 import {
   BrowserRouter,
   Switch,
   useParams,
-  Route
+  Route,
+  useHistory
 } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Details from './pages/Details';
 
+
 const RouteContainer = () => {
   const { id } = useParams<any>();
+  const history = useHistory();
+  useLayoutEffect(() => {
+    window.addEventListener('keyup', (key) => {
+      if(key.code === 'Escape') {
+        history.push('/');
+      }
+    })
+  });
   return (
     <>
       <Home />
       <AnimatePresence>
-        { id &&  <Details id={id} />}
+        { id &&  <Details id={`popup-${id}`} />}
       </AnimatePresence>
     </>
   )
